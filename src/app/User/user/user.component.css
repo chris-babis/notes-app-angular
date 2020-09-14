@@ -1,0 +1,28 @@
+.header-text {
+    color: rgb(0, 124, 207);
+    text-align: center;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+mat-form-field{
+    width: 300px;
+    text-align: left;
+    margin-bottom: 1rem
+}
+
+.hideBtn {
+    border: 0; 
+    cursor: pointer;
+}
+
+.submitBtn {
+    width: 300px;
+    text-align: center;
+}
+
