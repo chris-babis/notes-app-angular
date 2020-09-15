@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
 
   error;
+  errorSubscription: Subscription;
+
   pageMode;
   header;
   btnText;
@@ -24,9 +27,11 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.errorSubscription = this.userService.error.subscribe(err => this.error = err);
+
     this.userForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(7)]),
 
     })
 

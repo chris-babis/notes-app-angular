@@ -21,7 +21,7 @@
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
       <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">Password is required</mat-error>
-      <mat-error *ngIf="userForm.get('password').hasError('minlength') && userForm.get('password').dirty">Password must have at least 6 characters</mat-error> 
+      <mat-error *ngIf="userForm.get('password').hasError('minlength') && userForm.get('password').dirty">Password must have at least 7 characters</mat-error> 
     </mat-form-field>
     <br *ngIf="pageMode === 'register'">
       <mat-form-field appearance="fill" *ngIf="pageMode === 'register'">
@@ -32,6 +32,7 @@
         </button>
         <mat-error *ngIf="userForm.get('confirmPassword').errors">Passwords don't match</mat-error>
       </mat-form-field>
+      <mat-error *ngIf="error" style="text-align: center;">{{error}}</mat-error>
     <br>
     <button type="submit" class="btn btn-primary submitBtn" [disabled]="userForm.invalid">{{ btnText }}</button>
     <a *ngIf="pageMode === 'register'" class="redirect-link" [routerLink]="['/login']">Want to login? Click here.</a>
