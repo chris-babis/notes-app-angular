@@ -1,6 +1,12 @@
 <div class="user-page">
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <h2 class="header-text">{{ header }}</h2>
+    <mat-form-field appearance="fill" *ngIf="pageMode === 'register'">
+      <mat-label>Enter your name</mat-label>
+      <input matInput type="text" formControlName="name" required>
+      <mat-error *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">Name is required</mat-error>
+    </mat-form-field> 
+    <br *ngIf="pageMode === 'register'">
     <mat-form-field appearance="fill">
       <mat-label>Enter your email</mat-label>
       <input matInput placeholder="example@example.com" formControlName="email" required>
@@ -17,13 +23,18 @@
       <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">Password is required</mat-error>
       <mat-error *ngIf="userForm.get('password').hasError('minlength') && userForm.get('password').dirty">Password must have at least 6 characters</mat-error> 
     </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Enter your name</mat-label>
-      <input matInput type="text" formControlName="name" required>
-      <mat-error *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">Name is required</mat-error>
-    </mat-form-field>
+    <br *ngIf="pageMode === 'register'">
+      <mat-form-field appearance="fill" *ngIf="pageMode === 'register'">
+        <mat-label>Re-Enter your password</mat-label>
+        <input matInput [type]="confirmHide ? 'password' : 'text'" formControlName="confirmPassword" required>
+        <button class="hideBtn" mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="confirmHide">
+          <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="userForm.get('confirmPassword').errors">Passwords don't match</mat-error>
+      </mat-form-field>
     <br>
     <button type="submit" class="btn btn-primary submitBtn" [disabled]="userForm.invalid">{{ btnText }}</button>
+    <a *ngIf="pageMode === 'register'" class="redirect-link" [routerLink]="['/login']">Want to login? Click here.</a>
+    <a *ngIf="pageMode !== 'register'" class="redirect-link" [routerLink]="['/register']">Want to register? Click here.</a>
   </form>
 </div>
