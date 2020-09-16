@@ -45,7 +45,8 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit() {
-     this.pageMode === 'register' ? this.userService.registerUser(this.userForm.get('name').value,this.userForm.get('email').value,this.userForm.get('password').value) : ''
+     this.pageMode === 'register' ? this.userService.registerUser(this.userForm.get('name').value,this.userForm.get('email').value,this.userForm.get('password').value) 
+                                  : this.userService.loginUser(this.userForm.get('email').value,this.userForm.get('password').value)
   }
 
   checkPasswords(): {[s: string]: boolean} {

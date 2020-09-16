@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <button mat-button routerLink="/user"><mat-icon>notes</mat-icon> Notes</button>
+    <a><button mat-button><mat-icon>post_add</mat-icon> New Note</button></a>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="logoutUser()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

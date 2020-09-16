@@ -1,0 +1,26 @@
+/*********** NO NOTES ************/
+.no-notes-page {
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-align: center;
+    color: #3f50b5;
+    font-size: 2.5rem;
+}
+
+.error-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.first-note-link {
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 752px) {
+    .no-notes-page,.error-icon {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+  }
