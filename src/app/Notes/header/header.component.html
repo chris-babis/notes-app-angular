@@ -1,12 +1,15 @@
 <mat-toolbar color="primary">
-    <button mat-button routerLink="/user"><mat-icon>notes</mat-icon> Notes</button>
-    <a><button mat-button><mat-icon>post_add</mat-icon> New Note</button></a>
+    <a><button mat-button routerLink="/user/notes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><mat-icon>notes</mat-icon>Notes</button></a>
+    <a><button mat-button routerLink="/user/notes/compose" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><mat-icon>post_add</mat-icon>New Note</button></a>
     <span class="spacer"></span>
     <button mat-icon-button (click)="logoutUser()">
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 
-<div class="container">
+
+<div class="container-flex">
   <router-outlet></router-outlet>
 </div>
+
+

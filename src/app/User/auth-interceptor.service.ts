@@ -13,7 +13,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         let request = req;
         if(request.url !== 'http://localhost:3000/users/login' && request.url !== 'http://localhost:3000/users') {
             request = req.clone({headers: req.headers.append(`Authorization`,`Bearer ${this.userService.user.value.token}`)})
-        } else {}
+        } else { console.log('Authenticated request.')}
         return next.handle(request);
     }
 }

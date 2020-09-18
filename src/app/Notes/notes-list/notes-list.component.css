@@ -24,3 +24,9 @@
       margin: 0;
     }
   }
+
+
+/**************** NOTES PAGE ******************/
+mat-expansion-panel {
+    width: 80vw;
+}

@@ -2,11 +2,29 @@
     flex: 1 1 auto;
 }
 
-a {
-  margin: 0rem 2rem;
-  cursor: pointer;
+mat-icon {
+  margin-right: 0.5rem;
 }
 
-a:hover {
+button {
+  cursor: pointer;
+  margin: 0rem 0.5rem;
+  border-radius: 0;
+  outline: 0;
+}
+
+button:hover {
+  background-color: #002984;
+}
+
+.active {
+  background-color: #002984;
   border-bottom: 1px solid white;
+}
+
+
+.container-flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
 }

@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'user', component: HeaderComponent, canActivate:[AuthGuardService], children: [
     {path: '', redirectTo: 'notes', pathMatch: 'full'},
     {path: 'notes', component: NotesListComponent},
-    {path: 'notes/:id', component: SingleNoteComponent}
+    {path: 'notes/compose', component: SingleNoteComponent},
+    {path: 'notes/edit/:id', component: SingleNoteComponent},
   ]}
 ];
 

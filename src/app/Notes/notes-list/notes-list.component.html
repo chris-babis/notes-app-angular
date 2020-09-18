@@ -2,5 +2,22 @@
 <div class="no-notes-page" *ngIf="notes.length === 0">
     <span class="not-found-text"><mat-icon class="error-icon">error</mat-icon> You have no notes</span>
     <br>
-    <a><button mat-raised-button color="primary" class="first-note-link"><mat-icon>post_add</mat-icon>Make your first Note</button></a>
+    <a><button mat-raised-button color="primary" class="first-note-link" routerLink="compose"><mat-icon>post_add</mat-icon>Make your first note</button></a>
+</div>
+
+<div class="notes-page" *ngIf="notes.length !== 0">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let note of notes let i=index;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+              Note #{{i + 1}}:  {{note.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            {{note.content}}
+            <mat-action-row>
+              <button mat-button color="warn" (click)="delete(note._id)">Delete</button>
+              <button mat-button color="primary" (click)="edit(note._id)">Edit</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+    </mat-accordion>
 </div>

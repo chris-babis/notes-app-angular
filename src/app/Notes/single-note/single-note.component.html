@@ -1,1 +1,15 @@
-<p>single-note works!</p>
+<div class="single-note-page">
+    <form #noteForm="ngForm" (ngSubmit)="postNote(noteForm)">
+        <mat-form-field>
+            <input matInput type="text" name="title" placeholder="Enter your title" ngModel required #nameControl="ngModel" [(ngModel)]="title">
+            <mat-error *ngIf="nameControl.invalid">Title is required</mat-error>
+        </mat-form-field> 
+        <br>
+        <mat-form-field>
+            <textarea rows="10" matInput type="text" name="content" placeholder="Enter your content" ngModel required #contentControl="ngModel" [(ngModel)]="content"></textarea>
+            <mat-error *ngIf="contentControl.invalid">Content is required</mat-error>
+        </mat-form-field> 
+        <br>
+        <button type="submit" mat-raised-button color="primary" [disabled]="noteForm.invalid">Submit</button>
+    </form>
+</div>
